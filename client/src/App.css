@@ -24,6 +24,41 @@
   color: white;
 }
 
+form {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+
+}
+
+.form-group label {
+  margin-right: 10px;
+  font-weight: bold;
+  
+}
+
+.form-group input {
+  width: 75%;
+
+}
+
+.btn-submit {
+  width: 25%;
+  margin: 0 auto;
+  background-color:lime;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 2px 2px black;
+}
+
 .App-link {
   color: #61dafb;
 }

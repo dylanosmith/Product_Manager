@@ -39,16 +39,16 @@ export default function ProductForm() {
             {form.submitted && <span style={{color: "green"}}>"Thank you for adding your product!</span>}
             <form onSubmit={onSubmitHandler}>
                 <div className="form-group">
-                    <label>Title</label>
+                    <label>Title:</label>
                     <input type="text" name="title" value = {form.title} onChange={onChangeHandler} />
                 </div>
 
                 <div className="form-group">
-                    <label>Price</label>
+                    <label>Price:</label>
                     <input type="text" name="price" value = {form.price} onChange={onChangeHandler} />
                 </div>
                 <div className="form-group">
-                    <label>Description</label>
+                    <label>Description:</label>
                     <input type="text" name="description" value = {form.description} onChange={onChangeHandler} />
                 </div>
                 <button className="btn-submit" type="submit">Add Product</button>
