@@ -1,0 +1,69 @@
+Getting a project set up:
+
+
+mkdir project folder
+cd project folder
+
+mkdir server folder
+touch server.js
+
+cd server folder
+mkdir routes folder - stores all routes for each model/controller
+mkdir controllers folder - stores all logic for our views
+mkdir models folder - stores all models
+mkdir config folder - stores mongoose config file
+
+npm installs (at root of project for server-side functionality)
+
+npm init -y : creates node package.json file
+
+npm install express
+
+npm install mongoose (ORM for MongoDB)
+
+npm install cors
+
+Every model gets a controller file and a routes file
+
+
+server.js file: 
+
+General setup
+
+const express = require("express")
+const cors = require('cors')
+const app = express();
+
+//cors
+app.use(cors())
+
+//routes go here
+require("./server/routes/person.routes")(app)
+
+//starting server on port 8000
+app.listen(8000, () => {
+    console.log("listening on port 8000");
+})
+
+
+ROUTES 
+general setup for a routes file - you'll want api routes for
+CRUD 
+import the controller for that model
+
+const PersonController = require("../controllers/person.controller");
+
+//make a single function for all routes
+module.exports = function(app) => {
+    app.get for finding all
+    app.get for finding one
+    app.post for creating a new instance of a model
+    app.put for update
+    app.delete for deleting
+}
+
+CONTROLLERS 
+
+
+
+
