@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from "axios";
+import ProductList from "./ProductList"
 
 export default function ProductForm() {
     const initialFormState = {
@@ -7,6 +8,18 @@ export default function ProductForm() {
         price: 0.00,
         description: ""
     }
+    const [products, setProducts] = React.useState([])
+
+    React.useEffect (() => {
+        axios.get("http://localhost:8000/api/products")
+            .then(res => {
+                console.log(res.data);
+                setProducts(res.data);
+            })
+            .catch(err => {
+                console.log("something went wrong in ProdctList.js", err);
+            });
+    },[]);
 
     const [form, setForm] = React.useState(initialFormState)
 
@@ -35,7 +48,7 @@ export default function ProductForm() {
     }
     return (
         <div>
-            <h1>Add a new Product</h1>
+            <h1>Add a New Product</h1>
             {form.submitted && <span style={{color: "green"}}>"Thank you for adding your product!</span>}
             <form onSubmit={onSubmitHandler}>
                 <div className="form-group">
@@ -53,6 +66,8 @@ export default function ProductForm() {
                 </div>
                 <button className="btn-submit" type="submit">Add Product</button>
             </form>
+            <hr/>
+            <ProductList products={products}/>
         </div>
     )
 }
